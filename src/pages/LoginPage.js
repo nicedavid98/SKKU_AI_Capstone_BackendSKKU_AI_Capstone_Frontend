@@ -5,16 +5,39 @@ import '../styles/LoginPage.css';
 const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    onLogin({ username, password });
+    
+    try {
+      const response = await fetch('http://localhost:8080/api/user/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          username,
+          password,
+        }),
+      });
+
+      if (response.ok) {
+        const user = await response.json();
+        onLogin(user); // 로그인 성공 시 사용자 정보를 전달
+      } else {
+        setError('Invalid username or password');
+      }
+    } catch (error) {
+      console.error('Login error:', error);
+      setError('Failed to login. Please try again later.');
+    }
   };
 
   return (
     <div className="login-page">
       <h2>Welcome to our chatbot!</h2>
-      <form className="login-form">
+      <form className="login-form" onSubmit={handleLogin}>
         <div className="form-group">
           <label htmlFor="username">Username:</label>
           <input
@@ -39,7 +62,9 @@ const LoginPage = ({ onLogin }) => {
           />
         </div>
 
-        <button onClick={handleLogin} className="login-button">Login</button>
+        {error && <p className="error-message">{error}</p>}
+
+        <button type="submit" className="login-button">Login</button>
 
         <p>
           Don't have an account? <Link to="/register">Sign Up</Link>
@@ -50,3 +75,4 @@ const LoginPage = ({ onLogin }) => {
 };
 
 export default LoginPage;
+

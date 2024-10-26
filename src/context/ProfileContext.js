@@ -5,11 +5,7 @@ const ProfileContext = createContext();
 
 // 프로필 상태를 관리하는 Provider 컴포넌트
 export const ProfileProvider = ({ children }) => {
-  const [profile, setProfile] = useState({
-    name: 'Adam Williams',
-    bio: 'I am a software developer passionate about AI.',
-    profilePicture: '/images/default_profile_image.jpeg',
-  });
+  const [profile, setProfile] = useState({}); // 초기값을 빈 객체로 설정
 
   // 프로필 업데이트 함수
   const updateProfile = (newProfile) => {
@@ -28,4 +24,3 @@ export const ProfileProvider = ({ children }) => {
 
 // Context를 사용하기 위한 커스텀 훅
 export const useProfile = () => useContext(ProfileContext);
-

@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css'; // 전역 스타일 파일
+import './index.css';
 import App from './App';
+import { ProfileProvider } from './context/ProfileContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ProfileProvider>
+      <App />
+    </ProfileProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

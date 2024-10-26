@@ -13,12 +13,12 @@ const RegisterPage = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/api/register', {
+      const response = await fetch('http://localhost:8080/api/user/register', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({
+        body: new URLSearchParams({
           username,
           password,
           realname,
