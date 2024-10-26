@@ -1,0 +1,55 @@
+/* 기본 리셋 스타일 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f7;
+    color: #2c3e50;
+  }
+  
+  #root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* 전역 링크 스타일 */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* 버튼 기본 스타일 */
+  button {
+    cursor: pointer;
+    font-family: inherit;
+  }
+  
+  /* 입력 필드 기본 스타일 */
+  input, textarea {
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+  }
+  
+  /* 기본적인 페이지 레이아웃 */
+  .app {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    overflow-y: auto;
+  }
+  

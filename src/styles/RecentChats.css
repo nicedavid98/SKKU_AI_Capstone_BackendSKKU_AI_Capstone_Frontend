@@ -1,0 +1,81 @@
+/* 전체 Recent Chats 스타일 */
+/* .recent-chats {
+    padding: 20px;
+    background-color: #f8f9fa; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    height: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  } */
+  
+  .recent-chats h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333; /* 짙은 텍스트 색상 */
+    text-align: center;
+  }
+  
+  /* 채팅방 리스트 스타일 */
+  .chat-room-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  .chat-room-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 15px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .chat-room-item:hover {
+    background-color: #f1f3f5;
+  }
+  
+  /* 새로운 채팅방 추가 폼 */
+  .add-chat-form {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .add-chat-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+    color: #495057;
+  }
+  
+  .add-chat-input::placeholder {
+    color: #adb5bd; /* 플레이스홀더 색상 */
+  }
+  
+  .add-chat-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .add-chat-button:hover {
+    background-color: #0056b3; /* 버튼 호버시 색상 변경 */
+  }
+  
+  .add-chat-button:active {
+    background-color: #007bff;
+    transform: scale(0.98); /* 클릭시 살짝 작아지는 효과 */
+  }
+  

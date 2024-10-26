@@ -1,38 +1,59 @@
-.App {
-  text-align: center;
+/* 로그인 레이아웃 스타일 (로그인 상태가 아닐 때) */
+.login-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 전체 화면 중앙에 맞춤 */
+  background-color: #f0f2f5; /* 부드러운 배경색 */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 기존 .app 스타일 */
+.app {
+  display: flex;
+  height: 100vh; /* 전체 뷰포트 높이 맞춤 */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* 왼쪽 사이드바 스타일 */
+.sidebar {
+  flex: 1;
+  background-color: #2c3e50;
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-start;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  height: calc(100% - 20px); /* margin을 요소 크기에 포함 */
+  box-sizing: border-box; /* 패딩과 테두리를 요소 크기에 포함 */
 }
 
-.App-link {
-  color: #61dafb;
+/* 가운데 메인 콘텐츠 스타일 */
+.main-content {
+  flex: 2;
+  padding: 20px;
+  margin: 10px;
+  overflow-y: auto;
+  background-color: #f8f9fa; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+
+  overflow: hidden;
+  height: calc(100% - 20px); /* margin을 요소 크기에 포함 */
+  box-sizing: border-box; /* 패딩과 테두리를 요소 크기에 포함 */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* 오른쪽 고정 채팅방 스타일 */
+.chat-room {
+  flex: 3;
+  margin: 10px;
+  border-radius: 10px;
+  height: calc(100% - 20px); /* margin을 요소 크기에 포함 */
+  background-color: #f7f9fb;
+
+  display: flex;
+  flex-direction: column;
+  
+
 }

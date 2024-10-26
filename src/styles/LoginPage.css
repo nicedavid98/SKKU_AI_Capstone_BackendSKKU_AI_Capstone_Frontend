@@ -1,0 +1,45 @@
+/* 로그인 페이지 전체 레이아웃 */
+.login-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+/* 로그인 폼 */
+.login-form {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.login-button, .register-button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.login-button:hover, .register-button:hover {
+  background-color: #2980b9;
+}
+
+/* 회원가입 버튼에 추가된 스타일 */
+.register-button {
+  background-color: #2ecc71; /* 회원가입 버튼은 다른 색상 */
+}
+
+.register-button:hover {
+  background-color: #27ae60;
+}
