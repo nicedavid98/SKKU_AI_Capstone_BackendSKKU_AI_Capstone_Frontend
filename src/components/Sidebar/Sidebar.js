@@ -10,7 +10,7 @@ const Sidebar = () => {
     <div className="sidebar">
       {/* 유저 프로필 카드 */}
       <div className="user-profile-card">
-        <img src={profile.profilePicture} alt={`${profile.realname}'s profile`} className="profile-picture" />
+        <img src={profile.profileImageUrl} alt={`${profile.realname}'s profile`} className="profile-picture" />
         <div className="user-info">
           <h3>{profile.realname}</h3>
           <p>{profile.bio}</p>
@@ -37,3 +37,4 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
+

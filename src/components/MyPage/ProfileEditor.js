@@ -22,8 +22,8 @@ const ProfileEditor = ({ profile, onSave }) => {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({
-          realname: newProfile.realname, 
-          profileImageUrl: newProfile.profilePicture,
+          realname: newProfile.realname,
+          profileImageUrl: newProfile.profileImageUrl,
           bio: newProfile.bio,
         }),
       });
@@ -43,12 +43,12 @@ const ProfileEditor = ({ profile, onSave }) => {
   return (
     <form className="profile-editor" onSubmit={handleSubmit}>
       <div className="form-group">
-        <label htmlFor="profilePicture">Profile Picture URL:</label>
+        <label htmlFor="profileImageUrl">Profile Picture URL:</label>
         <input
           type="text"
-          id="profilePicture"
-          name="profilePicture"
-          value={newProfile.profilePicture}
+          id="profileImageUrl"
+          name="profileImageUrl"
+          value={newProfile.profileImageUrl}
           onChange={handleChange}
           placeholder="Enter profile picture URL"
         />

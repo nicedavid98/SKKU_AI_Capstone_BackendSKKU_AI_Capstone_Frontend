@@ -21,7 +21,7 @@ function App() {
       userId: userInfo.id,
       realname: userInfo.realname,
       bio: userInfo.bio,
-      profilePicture: userInfo.profileImageUrl,
+      profileImageUrl: userInfo.profileImageUrl,
     });
   };
 
