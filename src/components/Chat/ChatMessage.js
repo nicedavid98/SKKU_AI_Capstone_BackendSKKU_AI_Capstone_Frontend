@@ -1,8 +1,8 @@
 import React from 'react';
-import '../../styles/ChatRoom.css'; // 같은 스타일 파일에서 메시지 스타일 관리
+import '../../styles/ChatRoom.css';
 
 const ChatMessage = ({ sender, text }) => {
-  const isBot = sender === 'bot';
+  const isBot = sender === 'BOT';
 
   return (
     <div className={`chat-message ${isBot ? 'bot-message' : 'user-message'}`}>

@@ -1,34 +1,59 @@
-import React, { useState } from 'react';
-import '../../styles/RecentChats.css'
+import React, { useState, useEffect } from 'react';
+import '../../styles/RecentChats.css';
 
-const RecentChats = ({ onSelectRoom }) => {
-  const [chatRooms, setChatRooms] = useState([
-    { id: 1, name: 'Design Thinking' },
-    { id: 2, name: 'E-Commerce Website Code' }
-  ]);
+const RecentChats = ({ onSelectRoom, userId }) => {
+  const [chatRooms, setChatRooms] = useState([]); 
 
-  // 새로운 채팅방을 추가하는 함수
-  const addChatRoom = (newRoomName) => {
-    const newRoom = {
-      id: chatRooms.length + 1, // 임시 ID, 나중에 서버에서 받아오는 값으로 대체 가능
-      name: newRoomName,
+  // 채팅방 목록을 로드하는 함수
+  useEffect(() => {
+    const fetchChatRooms = async () => {
+      try {
+        // 특정 사용자 ID에 따른 채팅방 목록 요청
+        const response = await fetch(`http://localhost:8080/api/chatroom?userId=${userId}`);
+        const data = await response.json();
+        
+        // 데이터가 배열인지 확인하여 상태 업데이트
+        setChatRooms(Array.isArray(data) ? data : []);
+      } catch (error) {
+        console.error('Failed to fetch chat rooms:', error);
+        setChatRooms([]);
+      }
     };
-    setChatRooms([...chatRooms, newRoom]);
+    fetchChatRooms();
+  }, [userId]);
+
+  // 새로운 채팅방 추가 함수
+  const addChatRoom = async (newRoomName) => {
+    try {
+      // POST 요청으로 새로운 채팅방 생성
+      const response = await fetch(`http://localhost:8080/api/chatroom/create?userId=${userId}&title=${encodeURIComponent(newRoomName)}`, {
+        method: 'POST',
+      });
+      if (!response.ok) {
+        throw new Error('Failed to create chat room');
+      }
+
+      // 생성된 새 채팅방을 받아 기존 목록에 추가
+      const newRoom = await response.json();
+      setChatRooms((prevRooms) => [...prevRooms, newRoom]);
+    } catch (error) {
+      console.error('Failed to create chat room:', error);
+    }
   };
 
-  // 새로운 채팅방 추가 핸들러 (폼 제출)
+  // 새로운 채팅방 추가 폼 핸들러
   const handleAddChatRoom = (e) => {
     e.preventDefault();
     const newRoomName = e.target.elements.newRoomName.value;
     if (newRoomName.trim()) {
       addChatRoom(newRoomName);
-      e.target.reset(); // 폼 초기화
+      e.target.reset();
     }
   };
 
   // 채팅방 선택 핸들러
   const handleSelectRoom = (roomId) => {
-    onSelectRoom(roomId); // 부모 컴포넌트로 방 ID 전달
+    onSelectRoom(roomId);
   };
 
   return (
@@ -37,20 +62,12 @@ const RecentChats = ({ onSelectRoom }) => {
       <ul className="chat-room-list">
         {chatRooms.map((room) => (
           <li key={room.id} className="chat-room-item" onClick={() => handleSelectRoom(room.id)}>
-            {room.name}
+            {room.title}
           </li>
         ))}
       </ul>
-
-      {/* 새로운 채팅방을 추가할 수 있는 폼 */}
       <form onSubmit={handleAddChatRoom} className="add-chat-form">
-        <input
-          type="text"
-          name="newRoomName"
-          className="add-chat-input"
-          placeholder="Enter new chat room name"
-          required
-        />
+        <input type="text" name="newRoomName" className="add-chat-input" placeholder="Enter new chat room name" required />
         <button type="submit" className="add-chat-button">Add Chat Room</button>
       </form>
     </div>
@@ -58,4 +75,3 @@ const RecentChats = ({ onSelectRoom }) => {
 };
 
 export default RecentChats;
-
