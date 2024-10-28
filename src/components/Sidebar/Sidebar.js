@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'; // Link 컴포넌트 사용
 import { useProfile } from '../../context/ProfileContext'; // 프로필 상태 가져오기
 import '../../styles/Sidebar.css';
 
-const Sidebar = () => {
+const Sidebar = ({ onLogout }) => { // onLogout prop 추가
   const { profile } = useProfile(); // 전역 프로필 상태 사용
 
   return (
@@ -29,7 +29,7 @@ const Sidebar = () => {
           <Link to="/my-page">My Page</Link>
         </li>
         <li className="menu-item">
-          <Link to="/logout">Logout</Link>
+          <button onClick={onLogout} className="logout-button">Logout</button> {/* 로그아웃 버튼 */}
         </li>
       </ul>
     </div>
@@ -37,4 +37,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-

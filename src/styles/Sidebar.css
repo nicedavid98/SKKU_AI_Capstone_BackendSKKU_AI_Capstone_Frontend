@@ -24,6 +24,19 @@
   display: block; /* 클릭 가능한 영역 확장 */
 }
 
+.menu-item button {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: inherit;
+  text-align: left;
+  width: 100%;
+  padding: 0;
+}
+
 .user-profile-card {
   display: flex;
   flex-direction: column;
