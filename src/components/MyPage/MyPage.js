@@ -9,8 +9,8 @@ const MyPage = () => {
   return (
     <div className="my-page">
       <div className="profile-info">
-        <img src={profile.profilePicture} alt={`${profile.name}'s profile`} className="profile-picture" />
-        <h3>{profile.name}</h3>
+        <img src={profile.profilePicture} alt={`${profile.realname}'s profile`} className="profile-picture" />
+        <h3>{profile.realname}</h3>
         <p>{profile.bio}</p>
       </div>
 
@@ -21,4 +21,5 @@ const MyPage = () => {
 };
 
 export default MyPage;
+
 

@@ -4,6 +4,7 @@ import '../../styles/MyPage.css';
 const ProfileEditor = ({ profile, onSave }) => {
   const [newProfile, setNewProfile] = useState(profile);
   const [error, setError] = useState('');
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewProfile((prevProfile) => ({
@@ -21,7 +22,7 @@ const ProfileEditor = ({ profile, onSave }) => {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams({
-          realname: newProfile.name,
+          realname: newProfile.realname, 
           profileImageUrl: newProfile.profilePicture,
           bio: newProfile.bio,
         }),
@@ -54,12 +55,12 @@ const ProfileEditor = ({ profile, onSave }) => {
       </div>
 
       <div className="form-group">
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="realname">Real Name:</label>
         <input
           type="text"
-          id="name"
-          name="name"
-          value={newProfile.name}
+          id="realname"
+          name="realname" 
+          value={newProfile.realname}
           onChange={handleChange}
           required
         />

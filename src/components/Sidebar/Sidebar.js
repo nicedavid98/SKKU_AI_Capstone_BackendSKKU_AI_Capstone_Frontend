@@ -10,9 +10,9 @@ const Sidebar = () => {
     <div className="sidebar">
       {/* 유저 프로필 카드 */}
       <div className="user-profile-card">
-        <img src={profile.profilePicture} alt={`${profile.name}'s profile`} className="profile-picture" />
+        <img src={profile.profilePicture} alt={`${profile.realname}'s profile`} className="profile-picture" />
         <div className="user-info">
-          <h3>{profile.name}</h3>
+          <h3>{profile.realname}</h3>
           <p>{profile.bio}</p>
         </div>
       </div>

@@ -19,7 +19,7 @@ function App() {
     setIsLoggedIn(true);
     updateProfile({
       userId: userInfo.id,
-      name: userInfo.realname,
+      realname: userInfo.realname,
       bio: userInfo.bio,
       profilePicture: userInfo.profileImageUrl,
     });
