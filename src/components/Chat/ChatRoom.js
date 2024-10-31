@@ -22,8 +22,13 @@ const ChatRoom = ({ chatRoomId, userId }) => {
     fetchMessages();
   }, [chatRoomId]);
 
-  // 새로운 메시지를 전송하고, 사용자와 봇 메시지를 모두 추가하는 함수
+  // 새로운 메시지를 전송하고, 사용자와 봇 메시지를 별도로 추가하는 함수
   const addMessage = async (message) => {
+    // 유저의 메시지를 먼저 화면에 추가
+    const userMessage = { id: Date.now(), senderType: 'USER', content: message };
+    setMessages((prevMessages) => [...prevMessages, userMessage]);
+
+    // 챗봇의 응답 가져오기
     try {
       const response = await fetch(`http://localhost:8080/api/messages/send?chatRoomId=${chatRoomId}&senderType=USER&content=${encodeURIComponent(message)}`, {
         method: 'POST',
@@ -32,9 +37,10 @@ const ChatRoom = ({ chatRoomId, userId }) => {
         throw new Error('Failed to send message');
       }
       
-      // 사용자와 봇의 메시지 배열을 수신
+      // 챗봇의 응답 메시지만 추가
       const newMessages = await response.json();
-      setMessages((prevMessages) => [...prevMessages, ...newMessages]); // 기존 메시지에 새 메시지들을 추가
+      const botMessages = newMessages.filter(msg => msg.senderType !== 'USER');
+      setMessages((prevMessages) => [...prevMessages, ...botMessages]); // 기존 메시지에 봇 메시지만 추가
     } catch (error) {
       console.error('Failed to send message:', error);
     }
