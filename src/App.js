@@ -55,7 +55,7 @@ function App() {
           <div className="main-content">
             <Routes>
               <Route path="/recent-chats" element={<RecentChats onSelectRoom={setSelectedChatRoomId} userId={profile.userId} />} />
-              <Route path="/calendar" element={<CalendarPage />} />
+              <Route path="/calendar" element={<CalendarPage userId={profile.userId} />} />
               <Route path="/my-page" element={<MyPage />} />
               <Route path="/" element={<RecentChats onSelectRoom={setSelectedChatRoomId} userId={profile.userId} />} />
             </Routes>
