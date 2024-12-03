@@ -99,7 +99,8 @@ const CalendarPage = ({ userId }) => {
             </div>
           </div>
         ) : (
-          <p>No data available for {date.toDateString()}.</p>
+          // <p>No data available for {date.toDateString()}.</p>
+          <p>Click on the calendar to check today’s mood 😀</p>
         )}
       </div>
     </div>
