@@ -96,12 +96,14 @@
 }
 
 .react-calendar button {
+  border-radius: 10%;
   margin: 0;
   border: 0;
   outline: none;
 }
 
 .react-calendar button:enabled:hover {
+  border-radius: 10%;
   cursor: pointer;
 }
 
