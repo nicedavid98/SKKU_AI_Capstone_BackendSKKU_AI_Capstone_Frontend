@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import '../../styles/ChatRoom.css'; // 같은 스타일 파일에서 메시지 스타일 관리
+// 필요한 아이콘 가져오기
+import { FaTelegramPlane } from 'react-icons/fa';
+import { FiSend } from 'react-icons/fi';
+import { MdSend } from 'react-icons/md';
+import { BiSend } from 'react-icons/bi';
+import '../../styles/ChatRoom.css';
 
 const MessageInput = ({ onSend }) => {
   const [message, setMessage] = useState('');
@@ -7,8 +12,8 @@ const MessageInput = ({ onSend }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (message.trim()) {
-      onSend(message); // 상위 컴포넌트로 메시지 전달
-      setMessage('');   // 입력 필드 초기화
+      onSend(message);
+      setMessage('');
     }
   };
 
@@ -21,7 +26,9 @@ const MessageInput = ({ onSend }) => {
         onChange={(e) => setMessage(e.target.value)}
         placeholder="Type a message..."
       />
-      <button type="submit" className="send-button">Send</button>
+      <button type="submit" className="send-button" aria-label="Send">
+        <FiSend className="send-icon" />
+      </button>
     </form>
   );
 };

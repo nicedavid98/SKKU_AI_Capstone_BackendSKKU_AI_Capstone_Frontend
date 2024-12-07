@@ -36,7 +36,7 @@ const LoginPage = ({ onLogin }) => {
 
   return (
     <div className="login-page">
-      <h2>Welcome to our chatbot!</h2>
+      <h2>Welcome to BlueLift Chat!</h2>
       <form className="login-form" onSubmit={handleLogin}>
         <div className="form-group">
           <label htmlFor="username">Username:</label>

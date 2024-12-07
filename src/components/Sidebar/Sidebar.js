@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Link 컴포넌트 사용
-import { useProfile } from '../../context/ProfileContext'; // 프로필 상태 가져오기
+import { Link } from 'react-router-dom';
+import { useProfile } from '../../context/ProfileContext';
+import { FaComments, FaCalendarAlt, FaUser, FaSignOutAlt } from 'react-icons/fa'; // react-icons에서 아이콘 가져오기
 import '../../styles/Sidebar.css';
 
-const Sidebar = ({ onLogout }) => { // onLogout prop 추가
-  const { profile } = useProfile(); // 전역 프로필 상태 사용
+const Sidebar = ({ onLogout }) => {
+  const { profile } = useProfile();
 
   return (
     <div className="sidebar">
@@ -20,16 +21,24 @@ const Sidebar = ({ onLogout }) => { // onLogout prop 추가
       {/* 메뉴 리스트 */}
       <ul className="menu-list">
         <li className="menu-item">
-          <Link to="/recent-chats">Recent Chats</Link>
+          <Link to="/recent-chats">
+            <FaComments className="menu-icon" /> Recent Chats
+          </Link>
         </li>
         <li className="menu-item">
-          <Link to="/calendar">Calendar</Link>
+          <Link to="/calendar">
+            <FaCalendarAlt className="menu-icon" /> Calendar
+          </Link>
         </li>
         <li className="menu-item">
-          <Link to="/my-page">My Page</Link>
+          <Link to="/my-page">
+            <FaUser className="menu-icon" /> My Page
+          </Link>
         </li>
         <li className="menu-item">
-          <button onClick={onLogout} className="logout-button">Logout</button> {/* 로그아웃 버튼 */}
+          <button onClick={onLogout} className="logout-button">
+            <FaSignOutAlt className="menu-icon" /> Logout
+          </button>
         </li>
       </ul>
     </div>
