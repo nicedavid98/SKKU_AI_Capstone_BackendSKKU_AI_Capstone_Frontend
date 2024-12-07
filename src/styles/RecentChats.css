@@ -60,7 +60,7 @@
   }
   
   .add-chat-button {
-    background-color: #007bff;
+    background-color: #3498db;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -71,11 +71,11 @@
   }
   
   .add-chat-button:hover {
-    background-color: #0056b3; /* 버튼 호버시 색상 변경 */
+    background-color: #2980b9; /* 버튼 호버시 색상 변경 */
   }
   
   .add-chat-button:active {
-    background-color: #007bff;
+    background-color: #3498db;
     transform: scale(0.98); /* 클릭시 살짝 작아지는 효과 */
   }
   

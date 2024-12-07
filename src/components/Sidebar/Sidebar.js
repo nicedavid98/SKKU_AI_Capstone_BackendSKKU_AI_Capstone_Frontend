@@ -41,6 +41,24 @@ const Sidebar = ({ onLogout }) => {
           </button>
         </li>
       </ul>
+
+      {/* 이용약관 섹션 */}
+      <div className="terms-section">
+        <div className="terms-header">
+          <img
+            src="/images/bluelift_icon.png" /* 아이콘 경로 */
+            alt="BlueLift Chat Icon"
+            className="terms-icon"
+          />
+          <span className="chatbot-name">BlueLift ChatBot</span>
+        </div>
+        <p className="terms-text">
+          This chatbot analyzes your conversations to provide insights into your depression levels. All data is kept private and used solely to improve your mental health.
+        </p>
+        <p className="terms-link">
+          <Link to="/terms">Terms and Conditions</Link>
+        </p>
+      </div>
     </div>
   );
 };
