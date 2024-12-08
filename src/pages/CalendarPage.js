@@ -47,30 +47,30 @@ const CalendarPage = ({ userId }) => {
     }
   };
 
-  // 우울증 레벨을 텍스트로 변환하는 함수
-  const mapDepressionLevel = (level) => {
-    if (level == 10) return 'Cannot determine';
-    if (level < -0.9) return 'Good';
-    if (level < 0) return 'Moderate';
-    if (level < 0.9) return 'Needs Attention';
-    return 'Severe';
-  };
+// 우울증 레벨을 텍스트로 변환하는 함수
+const mapDepressionLevel = (level) => {
+  if (level === -1) return 'Cannot determine'; // No Chats
+  if (level > 0.995) return 'Good'; // 0.995 < Good <= 1
+  if (level > 0.002) return 'Needs Attention'; // 0.002 < Needs Attention <= 0.995
+  if (level >= 0) return 'Depression Detected'; // 0 <= Depression Detected <= 0.002
+  return 'Cannot determine'; // Fallback for invalid cases
+};
 
-  // 우울증 레벨에 따른 이모티콘 표시
-  const getDepressionLevelEmoji = (level) => {
-    switch (level) {
-      case 'Good':
-        return '😊';
-      case 'Moderate':
-        return '😐';
-      case 'Needs Attention':
-        return '😰';
-      case 'Severe':
-        return '😱';
-      case 'Cannot determine':
-        return '🤔';
-    }
-  };
+// 우울증 레벨에 따른 이모티콘 표시
+const getDepressionLevelEmoji = (levelText) => {
+  switch (levelText) {
+    case 'Good':
+      return '😊';
+    case 'Depression Detected':
+      return '😰';
+    case 'Needs Attention':
+      return '😐';
+    case 'Cannot determine':
+      return '🤔';
+    default:
+      return '🤔'; // Invalid levelText fallback
+  }
+};
 
   return (
     <div className="calendar-page">
