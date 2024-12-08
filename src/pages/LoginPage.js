@@ -9,7 +9,7 @@ const LoginPage = ({ onLogin }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    
+
     try {
       const response = await fetch('http://localhost:8080/api/user/login', {
         method: 'POST',
@@ -36,6 +36,13 @@ const LoginPage = ({ onLogin }) => {
 
   return (
     <div className="login-page">
+      <div className="icon-container">
+        <img
+          src="/images/bluelift_icon.png" // 아이콘 경로
+          alt="BlueLift Icon"
+          className="login-icon"
+        />
+      </div>
       <h2>Welcome to BlueLift Chat!</h2>
       <form className="login-form" onSubmit={handleLogin}>
         <div className="form-group">
@@ -75,4 +82,3 @@ const LoginPage = ({ onLogin }) => {
 };
 
 export default LoginPage;
-

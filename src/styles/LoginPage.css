@@ -43,3 +43,15 @@
 .register-button:hover {
   background-color: #27ae60;
 }
+
+/* 아이콘 컨테이너 */
+.icon-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px; /* 제목과의 간격 */
+}
+
+.login-icon {
+  width: 120px; /* 아이콘 크기 */
+  height: 120px;
+}
